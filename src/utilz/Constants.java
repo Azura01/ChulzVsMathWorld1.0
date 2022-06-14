@@ -11,6 +11,7 @@ public class Constants {
 
     public static class PlayerConstants{
 
+        //orden de animaciones en el sprite del personaje principal
         public static final int IDLE = 0;
         public static final int RUNNING = 1;
         public static final int JUMP = 2;
