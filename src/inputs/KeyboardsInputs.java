@@ -19,7 +19,7 @@ public class KeyboardsInputs implements KeyListener {
     public void keyTyped(KeyEvent e) {
 
     }
-
+        //metodo para evitar que el personaje deje de correr al presionar dos teclas
         @Override
         public void keyReleased(KeyEvent e) {
             switch (e.getKeyCode()) {
@@ -37,6 +37,8 @@ public class KeyboardsInputs implements KeyListener {
                     break;
             }
         }
+
+    //metodo para establecer las teclas de movimiento    
     @Override
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
