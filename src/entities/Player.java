@@ -15,9 +15,9 @@ public class Player extends Entity {
     private int aniTick, aniIndex, aniSpeed = 25; //velocidad de animacion del personaje
     private int playerAction = IDLE; //animacion por defecto en estado inmovil
     private boolean moving = false, jumping = false; //regreso a estado IDLE si no hace ninguna accion
-    private boolean  left, up, right, down;
+    private boolean  left, up, right, down; //objetos izquierda, arriba, derecha, abajo
     private float playerSpeed = 2.0f; //velocidad de movimiento al andar
-    private int[][] lvlData;
+    private int[][] lvlData; //mapa dividido en arrays, se muestra la division en tiles
     private float xDrawOffset = 8* Game.SCALE; //ayuda a sincronizar el hitbox con el personaje
     private float yDrawOffset = 8 * Game.SCALE; // ayuda a sincronizar el hitbox con el personajel
 
@@ -27,7 +27,7 @@ public class Player extends Entity {
         loadAnimations();
         initHitBox(x,y,45*Game.SCALE,45*Game.SCALE);
     }
-
+    //metodo de animacion en loop
     public void update() {
         updatePos();
         updateAnimationTick();
@@ -41,7 +41,7 @@ public class Player extends Entity {
         drawHitbox(g);
 
     }
-
+    //cambio de animacion al terminar de saltar
     private void updateAnimationTick() {
 
         aniTick++;
@@ -54,7 +54,7 @@ public class Player extends Entity {
             }
         }
     }
-
+    //metodo para llamar las animaciones segun la accion
         private void setAnimation () {
 
         int startAni = playerAction;
@@ -68,12 +68,12 @@ public class Player extends Entity {
             if(startAni != playerAction)
                 resetAniTick();
         }
-
+    //metodo de reset de animaciones
         private void resetAniTick(){
         aniTick=0;
         aniIndex=0;
         }
-
+    //metodo para mostrar actualizacion de movimiento de personaje
     private  void updatePos(){
 
         moving = false;
@@ -105,7 +105,7 @@ public class Player extends Entity {
 
 
     }
-
+    //metodo de llamado de sprite para animacion por defecto
     private void loadAnimations() {
 
             BufferedImage img = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_ATLAS);
@@ -130,7 +130,7 @@ public class Player extends Entity {
         public void setJumping(boolean jumping){
         this.jumping = jumping;
         }
-
+    //metodos para hacer que el personaje siga su curso asi se opriman dos teclas
     public boolean isLeft() {
         return left;
     }
