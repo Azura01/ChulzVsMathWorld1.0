@@ -12,15 +12,16 @@ import static utilz.HelpMethods.CanMoveHere;
 public class Player extends Entity {
 
     private BufferedImage[][] animations;
-    private int aniTick, aniIndex, aniSpeed = 25;
-    private int playerAction = IDLE;
-    private boolean moving = false, jumping = false;
+    private int aniTick, aniIndex, aniSpeed = 25; //velocidad de animacion del personaje
+    private int playerAction = IDLE; //animacion por defecto en estado inmovil
+    private boolean moving = false, jumping = false; //regreso a estado IDLE si no hace ninguna accion
     private boolean  left, up, right, down;
-    private float playerSpeed = 2.0f;
+    private float playerSpeed = 2.0f; //velocidad de movimiento al andar
     private int[][] lvlData;
     private float xDrawOffset = 8* Game.SCALE; //ayuda a sincronizar el hitbox con el personaje
     private float yDrawOffset = 8 * Game.SCALE; // ayuda a sincronizar el hitbox con el personajel
 
+    //tamaño y ubicacion del personaje dentro del mapa
     public Player(float x, float y, int width, int height) {
         super(x,y,width,height);
         loadAnimations();
